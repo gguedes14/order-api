@@ -1,5 +1,5 @@
 {
-  "name": "riley",
+  "name": "jazmine",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,10 +8,10 @@
     "test": "jest --coverage",
     "coverage": "open coverage/lcov-report/index.html",
     "start": "nodemon --watch 'src/' --exec 'ts-node src/index.ts' -e ts",
-    "knex:make": "npx knex migrate:make --knexfile ./src/utils/knexFile --env development",
-    "knex:migrate": "npx knex migrate:latest --knexfile ./src/utils/knexFile --env development",
-    "knex:rollback": "knex migrate:rollback --knexfile ./src/utils/knexFile --env development",
-    "knex:seed": "knex seed:run --knexfile ./src/utils/knexFile --env development"
+    "knex:make": "npx knex migrate:make --knexfile ./database/config/knexfile --env development",
+    "knex:migrate": "npx knex migrate:latest --knexfile ./database/config/knexfile --env development",
+    "knex:rollback": "knex migrate:rollback --knexfile ./database/config/knexfile --env development",
+    "knex:seed": "knex seed:run --knexfile ./database/config/knexfile --env development"
   },
   "keywords": [],
   "author": "Gabriel Guedes",

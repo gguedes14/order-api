@@ -22,6 +22,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*.ts", "database/**/*.ts"],
+  "include": ["src/**/*.ts", "database/**/*.ts", "database/knexFile.ts"],
   "exclude": ["node_modules", "build"]
 }

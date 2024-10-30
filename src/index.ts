@@ -25,6 +25,10 @@ app.use(
   },
 );
 
+app.get('/', (request, response) => {
+  return response.json({ message: 'Welcome!' });
+});
+
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
   console.info('Server started on port 3000 🚀');

@@ -129,4 +129,8 @@ export default class Env {
   static getDbPassword(): string {
     return Env.getStringOrThrow('DB_PASSWORD');
   }
+
+  static getRileyEndpoint(): string {
+    return Env.getStringOrThrow('RILEY_ENDPOINT');
+  }
 }

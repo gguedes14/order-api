@@ -15,7 +15,7 @@ export class OrdersController {
     });
 
     if (!getUser.data || getUser.data.length === 0) {
-      throw new Error("User not found");
+      response.status(400).json({ message: 'User not found' });
     }
 
     return response.status(200).json(getUser.data.email);
@@ -24,13 +24,13 @@ export class OrdersController {
   static async createOrder(request: Request, response: Response): Promise<Response> {
     const { email, product, quantity, price, description } = request.body
 
-    const userData = await OrdersController.getUserEmail(request, response);
+    const getUser = await OrdersController.getUserEmail(request, response);
 
-    if (!userData) {
+    if (!getUser) {
       return response.status(400).json({ message: 'User not found' });
     }
 
-    const order = await OrdersModel.createOrder({
+    await OrdersModel.createOrder({
       email,
       product,
       quantity,
@@ -38,11 +38,7 @@ export class OrdersController {
       description
     });
 
-    if (!order) {
-      return response.status(400).json({ message: 'Order not created' });
-    }
-
-    return response
+    return response.status(200).json({ message: 'Order created' });
   }
 }
 

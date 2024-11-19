@@ -320,4 +320,34 @@ describe('Util Env Variables', () => {
     expect(Env.getTokenJwt()).toBe('repo');
     expect(Env.getStringOrThrow).toHaveBeenCalledWith('JWT_TOKEN');
   });
+
+  test('getDbHost', () => {
+    jest.spyOn(Env, 'getStringOrThrow').mockReturnValue('repo');
+    expect(Env.getDbHost()).toBe('repo');
+    expect(Env.getStringOrThrow).toHaveBeenCalledWith('DB_HOST');
+  });
+
+  test('getDbPort', () => {
+    jest.spyOn(Env, 'getNumberOrThrow').mockReturnValue(4);
+    expect(Env.getDbPort()).toBe(4);
+    expect(Env.getNumberOrThrow).toHaveBeenCalledWith('DB_PORT');
+  });
+
+  test('getDbUsername', () => {
+    jest.spyOn(Env, 'getStringOrThrow').mockReturnValue('repo');
+    expect(Env.getDbUsername()).toBe('repo');
+    expect(Env.getStringOrThrow).toHaveBeenCalledWith('DB_USER');
+  });
+
+  test('getDbPassword', () => {
+    jest.spyOn(Env, 'getStringOrThrow').mockReturnValue('repo');
+    expect(Env.getDbPassword()).toBe('repo');
+    expect(Env.getStringOrThrow).toHaveBeenCalledWith('DB_PASSWORD');
+  });
+
+  test('getRileyEndpoint', () => {
+    jest.spyOn(Env, 'getStringOrThrow').mockReturnValue('repo');
+    expect(Env.getRileyEndpoint()).toBe('repo');
+    expect(Env.getStringOrThrow).toHaveBeenCalledWith('RILEY_ENDPOINT');
+  });
 });

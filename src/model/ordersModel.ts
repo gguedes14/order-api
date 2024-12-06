@@ -14,4 +14,12 @@ export class OrdersModel {
 
     return order;
   }
+
+  static async searchOrder(options: { email: string }) {
+    const user = await knex('users').where({ email: options.email }).first();
+
+    const order = await knex('orders').where({ user_id: user.id });
+
+    return order;
+  }
 }

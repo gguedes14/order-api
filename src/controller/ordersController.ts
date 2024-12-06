@@ -40,5 +40,19 @@ export class OrdersController {
 
     return response.status(200).json({ message: 'Order created' });
   }
+
+  static async searchOrder(request: Request, response: Response): Promise<Response> {
+    const { email } = request.body;
+
+    const getUser = await OrdersController.getUserEmail(request, response);
+
+    if (!getUser) {
+      return response.status(400).json({ message: 'User not found' });
+    }
+
+    await OrdersModel.searchOrder({ email });
+
+    return response.status(200).json({ message: 'Order created' });
+  }
 }
 
